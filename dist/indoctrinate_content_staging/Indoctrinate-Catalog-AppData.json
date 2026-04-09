@@ -1,0 +1,233 @@
+{
+    "AdditionalScanFolders": [
+        "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs"
+    ],
+    "SourceContentCatalog": {
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json": {
+            "UUID": "444b64ed-ac73-4af6-83b6-b17e78e8bba0",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging",
+            "Name": "Indoctrinate-Catalog-AppData.json",
+            "MimeType": "application/json",
+            "Nature": "application",
+            "Format": "json",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "dist",
+                "indoctrinate_content_staging",
+                "__LABELSET_NAME",
+                "Indoctrinate",
+                "Catalog",
+                "AppData",
+                "__LABELSET_EXTENSION",
+                ".json",
+                "__LABELSET_FILENAME",
+                "Indoctrinate-Catalog-AppData.json",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json",
+                "__LABELSET_FORMAT",
+                "json",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 558,
+                "Created": "2026-04-09T23:23:28.961Z",
+                "Modified": "2026-04-09T23:23:29.166Z",
+                "Accessed": "2026-04-09T23:23:28.961Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json": {
+            "UUID": "27d9bf8a-e34d-4c45-8809-07c4882259ed",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs",
+            "Name": "retold-catalog.json",
+            "MimeType": "application/json",
+            "Nature": "application",
+            "Format": "json",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "docs",
+                "__LABELSET_NAME",
+                "retold",
+                "catalog",
+                "__LABELSET_EXTENSION",
+                ".json",
+                "__LABELSET_FILENAME",
+                "retold-catalog.json",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json",
+                "__LABELSET_FORMAT",
+                "json",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 443,
+                "Created": "2026-04-09T23:23:28.964Z",
+                "Modified": "2026-04-09T23:23:28.964Z",
+                "Accessed": "2026-04-09T23:23:28.964Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json": {
+            "UUID": "1e225fbb-0a43-4f34-ae76-d25232962a53",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager",
+            "Name": "package.json",
+            "MimeType": "application/json",
+            "Nature": "application",
+            "Format": "json",
+            "Schema": "PackageDotJSON",
+            "Content": {
+                "name": "meadow-connection-manager",
+                "version": "1.0.0",
+                "description": "Server-side meadow connection manager. Parses connection configurations and instantiates database providers with graceful fallbacks for missing drivers.",
+                "main": "source/Meadow-ConnectionManager.js",
+                "scripts": {
+                    "start": "node source/Meadow-ConnectionManager.js",
+                    "test": "npx quack test"
+                },
+                "mocha": {
+                    "diff": true,
+                    "extension": [
+                        "js"
+                    ],
+                    "package": "./package.json",
+                    "reporter": "spec",
+                    "slow": "75",
+                    "timeout": "5000",
+                    "ui": "tdd",
+                    "watch-files": [
+                        "source/**/*.js",
+                        "test/**/*.js"
+                    ]
+                },
+                "keywords": [
+                    "meadow",
+                    "connection",
+                    "database",
+                    "provider",
+                    "manager"
+                ],
+                "author": "Steven Velozo <steven@velozo.com>",
+                "license": "MIT",
+                "dependencies": {
+                    "fable-serviceproviderbase": "^3.0.19"
+                },
+                "peerDependencies": {
+                    "meadow-connection-mysql": ">=1.0.0",
+                    "meadow-connection-mssql": ">=1.0.0",
+                    "meadow-connection-postgresql": ">=1.0.0",
+                    "meadow-connection-sqlite": ">=1.0.0",
+                    "meadow-connection-solr": ">=1.0.0",
+                    "meadow-connection-rocksdb": ">=1.0.0",
+                    "meadow-connection-mongodb": ">=1.0.0"
+                },
+                "peerDependenciesMeta": {
+                    "meadow-connection-mysql": {
+                        "optional": true
+                    },
+                    "meadow-connection-mssql": {
+                        "optional": true
+                    },
+                    "meadow-connection-postgresql": {
+                        "optional": true
+                    },
+                    "meadow-connection-sqlite": {
+                        "optional": true
+                    },
+                    "meadow-connection-solr": {
+                        "optional": true
+                    },
+                    "meadow-connection-rocksdb": {
+                        "optional": true
+                    },
+                    "meadow-connection-mongodb": {
+                        "optional": true
+                    }
+                }
+            },
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "__LABELSET_NAME",
+                "package",
+                "__LABELSET_EXTENSION",
+                ".json",
+                "__LABELSET_FILENAME",
+                "package.json",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json",
+                "__LABELSET_FORMAT",
+                "json",
+                "PackageDotJSON"
+            ],
+            "FSTAT": {
+                "Size": 1508,
+                "Created": "2026-03-27T06:43:20.877Z",
+                "Modified": "2026-03-27T06:43:20.878Z",
+                "Accessed": "2026-04-01T02:21:53.358Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js": {
+            "UUID": "680549ae-37aa-4257-8248-ba1f85ceedf6",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source",
+            "Name": "Meadow-ConnectionManager.js",
+            "MimeType": "application/javascript",
+            "Nature": "application",
+            "Format": "javascript",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "source",
+                "__LABELSET_NAME",
+                "Meadow",
+                "ConnectionManager",
+                "__LABELSET_EXTENSION",
+                ".js",
+                "__LABELSET_FILENAME",
+                "Meadow-ConnectionManager.js",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js",
+                "__LABELSET_FORMAT",
+                "javascript",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 9266,
+                "Created": "2026-03-31T18:23:06.235Z",
+                "Modified": "2026-03-31T18:23:06.235Z",
+                "Accessed": "2026-04-01T02:21:53.358Z",
+                "Mode": 33188
+            }
+        }
+    },
+    "RootFolder": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager",
+    "OutputFolderPath": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist",
+    "StageFolderPath": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging",
+    "TargetFilter": false,
+    "WriteCatalogFile": true,
+    "IgnoreUnknownTypes": false
+}
