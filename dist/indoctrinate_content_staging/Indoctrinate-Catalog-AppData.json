@@ -4,7 +4,7 @@
     ],
     "SourceContentCatalog": {
         "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json": {
-            "UUID": "444b64ed-ac73-4af6-83b6-b17e78e8bba0",
+            "UUID": "8d7b522a-8fe1-4ef1-9822-4e562fd61841",
             "Type": "URI",
             "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json",
             "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/dist/indoctrinate_content_staging/Indoctrinate-Catalog-AppData.json",
@@ -38,13 +38,123 @@
             "FSTAT": {
                 "Size": 558,
                 "Created": "2026-04-09T23:23:28.961Z",
-                "Modified": "2026-04-09T23:23:29.166Z",
-                "Accessed": "2026-04-09T23:23:28.961Z",
+                "Modified": "2026-04-10T01:49:46.628Z",
+                "Accessed": "2026-04-09T23:28:36.430Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/.nojekyll": {
+            "UUID": "99f00bed-1182-4bac-a498-4496ae03a9d2",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/.nojekyll",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/.nojekyll",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs",
+            "Name": ".nojekyll",
+            "MimeType": null,
+            "Nature": "UNKNOWN",
+            "Format": "UNKNOWN",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "docs",
+                "__LABELSET_NAME",
+                "__LABELSET_EXTENSION",
+                "",
+                "__LABELSET_FILENAME",
+                ".nojekyll",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/.nojekyll",
+                "__LABELSET_FORMAT",
+                "UNKNOWN",
+                "Default"
+            ],
+            "FSTAT": {
+                "Created": "2026-04-09T23:23:29.219Z",
+                "Modified": "2026-04-09T23:23:29.226Z",
+                "Accessed": "2026-04-09T23:23:29.219Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/css/docuserve.css": {
+            "UUID": "2c29e5b6-6ea2-4b2d-944c-574f03a4dfe6",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/css/docuserve.css",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/css/docuserve.css",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/css",
+            "Name": "docuserve.css",
+            "MimeType": "text/css",
+            "Nature": "text",
+            "Format": "css",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "docs",
+                "css",
+                "__LABELSET_NAME",
+                "docuserve",
+                "__LABELSET_EXTENSION",
+                ".css",
+                "__LABELSET_FILENAME",
+                "docuserve.css",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/css/docuserve.css",
+                "__LABELSET_FORMAT",
+                "css",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 1263,
+                "Created": "2026-03-10T18:01:03.404Z",
+                "Modified": "2026-04-09T23:23:29.220Z",
+                "Accessed": "2026-04-09T23:28:36.430Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/index.html": {
+            "UUID": "ec907046-efe5-424e-acaa-c93aaa3bd33c",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/index.html",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/index.html",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs",
+            "Name": "index.html",
+            "MimeType": "text/html",
+            "Nature": "text",
+            "Format": "html",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "docs",
+                "__LABELSET_NAME",
+                "index",
+                "__LABELSET_EXTENSION",
+                ".html",
+                "__LABELSET_FILENAME",
+                "index.html",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/index.html",
+                "__LABELSET_FORMAT",
+                "html",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 1652,
+                "Created": "2026-03-10T18:01:03.421Z",
+                "Modified": "2026-04-09T23:23:29.220Z",
+                "Accessed": "2026-04-09T23:28:36.430Z",
                 "Mode": 33188
             }
         },
         "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json": {
-            "UUID": "27d9bf8a-e34d-4c45-8809-07c4882259ed",
+            "UUID": "ce1fea6f-1515-41e7-b56f-c9024ffaa29d",
             "Type": "URI",
             "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json",
             "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-catalog.json",
@@ -74,15 +184,54 @@
                 "Default"
             ],
             "FSTAT": {
-                "Size": 443,
+                "Size": 749,
                 "Created": "2026-04-09T23:23:28.964Z",
-                "Modified": "2026-04-09T23:23:28.964Z",
-                "Accessed": "2026-04-09T23:23:28.964Z",
+                "Modified": "2026-04-10T01:49:46.429Z",
+                "Accessed": "2026-04-09T23:28:36.430Z",
+                "Mode": 33188
+            }
+        },
+        "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-keyword-index.json": {
+            "UUID": "f2f71644-91f1-4b0c-804b-4c9154db0b73",
+            "Type": "URI",
+            "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-keyword-index.json",
+            "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-keyword-index.json",
+            "Location": "/Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs",
+            "Name": "retold-keyword-index.json",
+            "MimeType": "application/json",
+            "Nature": "application",
+            "Format": "json",
+            "Schema": "Default",
+            "Content": false,
+            "Labels": [
+                "__LABELSET_TYPE",
+                "FILE",
+                "__LABELSET_ADDRESS",
+                "docs",
+                "__LABELSET_NAME",
+                "retold",
+                "keyword",
+                "index",
+                "__LABELSET_EXTENSION",
+                ".json",
+                "__LABELSET_FILENAME",
+                "retold-keyword-index.json",
+                "__LABELSET_FULLPATH",
+                "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/docs/retold-keyword-index.json",
+                "__LABELSET_FORMAT",
+                "json",
+                "Default"
+            ],
+            "FSTAT": {
+                "Size": 269,
+                "Created": "2026-04-09T23:23:29.169Z",
+                "Modified": "2026-04-09T23:23:29.169Z",
+                "Accessed": "2026-04-09T23:28:36.430Z",
                 "Mode": 33188
             }
         },
         "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json": {
-            "UUID": "1e225fbb-0a43-4f34-ae76-d25232962a53",
+            "UUID": "a446b2e1-bfdb-488c-9525-9404bf0eecd4",
             "Type": "URI",
             "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json",
             "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/package.json",
@@ -186,7 +335,7 @@
             }
         },
         "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js": {
-            "UUID": "680549ae-37aa-4257-8248-ba1f85ceedf6",
+            "UUID": "58bdb3fd-0010-458c-8906-043ee8ef71c5",
             "Type": "URI",
             "Hash": "URI~CONTENT~FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js",
             "Path": "FILE://Users/steven/Code/retold/modules/meadow/meadow-connection-manager/source/Meadow-ConnectionManager.js",
