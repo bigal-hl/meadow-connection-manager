@@ -1,11 +1,11 @@
 {
 	"name": "meadow-connection-manager",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Server-side meadow connection manager. Parses connection configurations and instantiates database providers with graceful fallbacks for missing drivers.",
 	"main": "source/Meadow-ConnectionManager.js",
 	"scripts": {
 		"start": "node source/Meadow-ConnectionManager.js",
-		"test": "npx quack test"
+		"test": "npx mocha -u tdd --exit --timeout 10000 test/*_tests.js"
 	},
 	"mocha": {
 		"diff": true,
@@ -31,6 +31,10 @@
 	],
 	"author": "Steven Velozo <steven@velozo.com>",
 	"license": "MIT",
+	"devDependencies": {
+		"chai": "^4.3.10",
+		"mocha": "^10.2.0"
+	},
 	"dependencies": {
 		"fable-serviceproviderbase": "^3.0.19"
 	},

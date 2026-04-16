@@ -16,6 +16,7 @@
 'use strict';
 
 const libFableServiceProviderBase = require('fable-serviceproviderbase');
+const libSanitizeConnectionName = require('./Meadow-ConnectionManager-Sanitize.js');
 
 /**
  * Map of provider type names to their npm module names.
@@ -57,8 +58,10 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 
 		this.serviceType = 'MeadowConnectionManager';
 
-		// Named connections: { name: { provider, config, instance, status } }
+		// Named connections: { name: { name, hash, type, config, instance, status } }
 		this._Connections = {};
+		// Reverse index: hash → same connection reference (for getConnectionByHash)
+		this._ConnectionsByHash = {};
 	}
 
 	// ─────────────────────────────────────────────
@@ -85,6 +88,26 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 		let tmpName = pName || 'default';
 		let tmpConfig = pConfig || {};
 		let tmpType = tmpConfig.Type || this.options.DefaultProvider || 'MySQL';
+
+		// Compute a URL-safe hash from the connection name for route namespacing
+		let tmpHash;
+		try
+		{
+			tmpHash = libSanitizeConnectionName(tmpName);
+		}
+		catch (pSanitizeError)
+		{
+			return fCallback(pSanitizeError);
+		}
+
+		// Reject if a DIFFERENT connection name already owns this hash
+		let tmpExistingByHash = this._ConnectionsByHash[tmpHash];
+		if (tmpExistingByHash && tmpExistingByHash.name !== tmpName)
+		{
+			return fCallback(new Error(
+				`MeadowConnectionManager: connection name "${tmpName}" sanitizes to hash "${tmpHash}" ` +
+				`which is already in use by connection "${tmpExistingByHash.name}".`));
+		}
 
 		let tmpModuleName = tmpConfig.ProviderModule || PROVIDER_MODULES[tmpType];
 		if (!tmpModuleName)
@@ -188,13 +211,15 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 					this._Connections[tmpName] =
 					{
 						name:     tmpName,
+						hash:     tmpHash,
 						type:     tmpType,
 						config:   tmpConfig,
 						instance: tmpInstance,
 						status:   'connected',
 					};
+					this._ConnectionsByHash[tmpHash] = this._Connections[tmpName];
 
-					this.log.info(`MeadowConnectionManager: connected "${tmpName}" (${tmpType})`);
+					this.log.info(`MeadowConnectionManager: connected "${tmpName}" (${tmpType}) hash=[${tmpHash}]`);
 					return fCallback(null, this._Connections[tmpName]);
 				});
 		}
@@ -203,13 +228,15 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 			this._Connections[tmpName] =
 			{
 				name:     tmpName,
+				hash:     tmpHash,
 				type:     tmpType,
 				config:   tmpConfig,
 				instance: tmpInstance,
 				status:   'connected',
 			};
+			this._ConnectionsByHash[tmpHash] = this._Connections[tmpName];
 
-			this.log.info(`MeadowConnectionManager: connected "${tmpName}" (${tmpType})`);
+			this.log.info(`MeadowConnectionManager: connected "${tmpName}" (${tmpType}) hash=[${tmpHash}]`);
 			return fCallback(null, this._Connections[tmpName]);
 		}
 	}
@@ -237,6 +264,7 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 			tmpConn.instance.close(
 				(pError) =>
 				{
+					if (tmpConn.hash) { delete this._ConnectionsByHash[tmpConn.hash]; }
 					delete this._Connections[tmpName];
 					this.log.info(`MeadowConnectionManager: disconnected "${tmpName}"`);
 					return fCallback(pError);
@@ -244,6 +272,7 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 		}
 		else
 		{
+			if (tmpConn.hash) { delete this._ConnectionsByHash[tmpConn.hash]; }
 			delete this._Connections[tmpName];
 			this.log.info(`MeadowConnectionManager: disconnected "${tmpName}"`);
 			return fCallback(null);
@@ -281,11 +310,21 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 	/**
 	 * Get a named connection.
 	 * @param {string} [pName='default']
-	 * @returns {object|null} — { name, type, config, instance, status }
+	 * @returns {object|null} — { name, hash, type, config, instance, status }
 	 */
 	getConnection(pName)
 	{
 		return this._Connections[pName || 'default'] || null;
+	}
+
+	/**
+	 * Get a connection by its sanitized hash.
+	 * @param {string} pHash
+	 * @returns {object|null} — same shape as getConnection()
+	 */
+	getConnectionByHash(pHash)
+	{
+		return this._ConnectionsByHash[pHash] || null;
 	}
 
 	/**
@@ -343,3 +382,4 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 }
 
 module.exports = MeadowConnectionManager;
+module.exports.sanitizeConnectionName = libSanitizeConnectionName;
