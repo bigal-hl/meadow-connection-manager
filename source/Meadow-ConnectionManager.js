@@ -16,6 +16,7 @@
 'use strict';
 
 const libFableServiceProviderBase = require('fable-serviceproviderbase');
+const libPath = require('path');
 const libSanitizeConnectionName = require('./Meadow-ConnectionManager-Sanitize.js');
 
 /**
@@ -30,8 +31,56 @@ const PROVIDER_MODULES =
 	'Solr':             'meadow-connection-solr',
 	'RocksDB':          'meadow-connection-rocksdb',
 	'MongoDB':          'meadow-connection-mongodb',
+	'Bibliograph':      'bibliograph',
 	'RetoldDataBeacon': 'meadow-connection-retold-databeacon',
 };
+
+/**
+ * Path within each module to its form-schema file, relative to the
+ * module's package.json.  Most providers follow the
+ * `Meadow-Connection-<Type>-FormSchema.js` naming convention, but
+ * Bibliograph isn't a meadow-connection-* module so it uses a shorter
+ * name.  Providers without an entry here return null from the form
+ * schema accessors (e.g., RetoldDataBeacon — schema not yet defined).
+ */
+const FORM_SCHEMA_PATHS =
+{
+	'MySQL':       'source/Meadow-Connection-MySQL-FormSchema.js',
+	'PostgreSQL':  'source/Meadow-Connection-PostgreSQL-FormSchema.js',
+	'MSSQL':       'source/Meadow-Connection-MSSQL-FormSchema.js',
+	'SQLite':      'source/Meadow-Connection-SQLite-FormSchema.js',
+	'Solr':        'source/Meadow-Connection-Solr-FormSchema.js',
+	'RocksDB':     'source/Meadow-Connection-RocksDB-FormSchema.js',
+	'MongoDB':     'source/Meadow-Connection-MongoDB-FormSchema.js',
+	'Bibliograph': 'source/Bibliograph-FormSchema.js',
+};
+
+/**
+ * Resolve the path to a provider module's form-schema file without
+ * loading the module's main entry (which would trigger the underlying
+ * driver `require()` and fail if the optional peer dep is missing).
+ *
+ * Returns null if the module isn't installed or if the provider type
+ * doesn't yet have a form-schema file.
+ */
+function _resolveFormSchemaPath(pType)
+{
+	let tmpModuleName = PROVIDER_MODULES[pType];
+	let tmpRelativePath = FORM_SCHEMA_PATHS[pType];
+	if (!tmpModuleName || !tmpRelativePath) { return null; }
+
+	let tmpPackageJSONPath;
+	try
+	{
+		tmpPackageJSONPath = require.resolve(tmpModuleName + '/package.json');
+	}
+	catch (pError)
+	{
+		return null;
+	}
+	let tmpModuleDir = libPath.dirname(tmpPackageJSONPath);
+	return libPath.join(tmpModuleDir, tmpRelativePath);
+}
 
 const defaultConnectionManagerOptions =
 {
@@ -376,6 +425,71 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 			{
 				tmpResult[tmpTypes[i]] = false;
 			}
+		}
+		return tmpResult;
+	}
+
+	// ─────────────────────────────────────────────
+	//  Form schema discovery
+	// ─────────────────────────────────────────────
+
+	/**
+	 * Get the connection-form schema for one provider type.
+	 *
+	 * The schema is the canonical description of which fields are
+	 * needed to connect to a given engine — used by UIs that want to
+	 * render a "Connect to <X>" form without re-encoding the field
+	 * list per app.  Each provider module exports its own schema at
+	 * `source/Meadow-Connection-<Type>-FormSchema.js`; this method
+	 * loads it without triggering the driver `require()` so it works
+	 * even when the optional peer dep isn't installed.
+	 *
+	 * Schema shape:
+	 *   {
+	 *     Provider:    'MySQL',
+	 *     DisplayName: 'MySQL',
+	 *     Description: '...',
+	 *     Fields: [{ Name, Label, Type, Default, Required, ... }, ...]
+	 *   }
+	 *
+	 * @param {string} pType — provider type key, e.g. 'MySQL'
+	 * @returns {object|null} schema object, or null if the provider
+	 *   isn't registered or its module isn't installed
+	 */
+	getProviderFormSchema(pType)
+	{
+		let tmpSchemaPath = _resolveFormSchemaPath(pType);
+		if (!tmpSchemaPath) { return null; }
+		try
+		{
+			return require(tmpSchemaPath);
+		}
+		catch (pError)
+		{
+			this.log.trace(`MCM: form schema not available for "${pType}": ${pError.message}`);
+			return null;
+		}
+	}
+
+	/**
+	 * Get the connection-form schemas for every provider whose module
+	 * is currently installed.  Returns an array of schema objects in
+	 * a stable provider-type order, suitable for serializing as JSON
+	 * to a browser UI that drives a provider-picker form.
+	 *
+	 * Providers whose module is not installed (or whose schema file
+	 * is missing for any reason) are silently skipped.
+	 *
+	 * @returns {object[]}
+	 */
+	getAllProviderFormSchemas()
+	{
+		let tmpResult = [];
+		let tmpTypes = Object.keys(PROVIDER_MODULES);
+		for (let i = 0; i < tmpTypes.length; i++)
+		{
+			let tmpSchema = this.getProviderFormSchema(tmpTypes[i]);
+			if (tmpSchema) { tmpResult.push(tmpSchema); }
 		}
 		return tmpResult;
 	}
