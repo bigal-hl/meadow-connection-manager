@@ -33,6 +33,7 @@ const PROVIDER_MODULES =
 	'MongoDB':          'meadow-connection-mongodb',
 	'Bibliograph':      'bibliograph',
 	'RetoldDataBeacon': 'meadow-connection-retold-databeacon',
+	'MeadowEndpoints':  'meadow-connection-meadow-endpoints',
 };
 
 /**
@@ -45,14 +46,15 @@ const PROVIDER_MODULES =
  */
 const FORM_SCHEMA_PATHS =
 {
-	'MySQL':       'source/Meadow-Connection-MySQL-FormSchema.js',
-	'PostgreSQL':  'source/Meadow-Connection-PostgreSQL-FormSchema.js',
-	'MSSQL':       'source/Meadow-Connection-MSSQL-FormSchema.js',
-	'SQLite':      'source/Meadow-Connection-SQLite-FormSchema.js',
-	'Solr':        'source/Meadow-Connection-Solr-FormSchema.js',
-	'RocksDB':     'source/Meadow-Connection-RocksDB-FormSchema.js',
-	'MongoDB':     'source/Meadow-Connection-MongoDB-FormSchema.js',
-	'Bibliograph': 'source/Bibliograph-FormSchema.js',
+	'MySQL':           'source/Meadow-Connection-MySQL-FormSchema.js',
+	'PostgreSQL':      'source/Meadow-Connection-PostgreSQL-FormSchema.js',
+	'MSSQL':           'source/Meadow-Connection-MSSQL-FormSchema.js',
+	'SQLite':          'source/Meadow-Connection-SQLite-FormSchema.js',
+	'Solr':            'source/Meadow-Connection-Solr-FormSchema.js',
+	'RocksDB':         'source/Meadow-Connection-RocksDB-FormSchema.js',
+	'MongoDB':         'source/Meadow-Connection-MongoDB-FormSchema.js',
+	'Bibliograph':     'source/Bibliograph-FormSchema.js',
+	'MeadowEndpoints': 'source/Meadow-Connection-MeadowEndpoints-FormSchema.js',
 };
 
 /**
