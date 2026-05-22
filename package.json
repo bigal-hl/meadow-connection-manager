@@ -33,19 +33,21 @@
 	"license": "MIT",
 	"devDependencies": {
 		"chai": "^4.3.10",
-		"mocha": "^10.2.0"
+		"mocha": "^10.2.0",
+		"pict-docuserve": "^1.3.3",
+		"quackage": "^1.2.4"
 	},
 	"dependencies": {
 		"fable-serviceproviderbase": "^3.0.19"
 	},
 	"peerDependencies": {
-		"meadow-connection-mysql": ">=1.0.0",
+		"meadow-connection-mongodb": ">=1.0.0",
 		"meadow-connection-mssql": ">=1.0.0",
+		"meadow-connection-mysql": ">=1.0.0",
 		"meadow-connection-postgresql": ">=1.0.0",
-		"meadow-connection-sqlite": ">=1.0.0",
-		"meadow-connection-solr": ">=1.0.0",
 		"meadow-connection-rocksdb": ">=1.0.0",
-		"meadow-connection-mongodb": ">=1.0.0"
+		"meadow-connection-solr": ">=1.0.0",
+		"meadow-connection-sqlite": ">=1.0.0"
 	},
 	"peerDependenciesMeta": {
 		"meadow-connection-mysql": {

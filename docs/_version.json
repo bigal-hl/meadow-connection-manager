@@ -1,7 +1,7 @@
 {
 	"Name": "meadow-connection-manager",
-	"Version": "1.0.0",
+	"Version": "1.1.2",
 	"Description": "Server-side meadow connection manager. Parses connection configurations and instantiates database providers with graceful fallbacks for missing drivers.",
-	"GeneratedAt": "2026-04-10T03:20:09.425Z",
-	"GitCommit": "3782eca"
+	"GeneratedAt": "2026-05-22T05:39:12.252Z",
+	"GitCommit": "747ceea"
 }
