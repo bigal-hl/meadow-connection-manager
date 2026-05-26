@@ -4,6 +4,6 @@
 
 - Read the full documentation for usage, configuration, and reference
 
-[GitHub](https://github.com/stevenvelozo/meadow-connection-manager)
+[GitHub](https://github.com/fable-retold/meadow-connection-manager)
 [Get Started](#meadow-connection-manager)
 
