@@ -1,7 +1,7 @@
 {
-	"Generated": "2026-05-22T05:39:12.236Z",
+	"Generated": "2026-05-26T18:19:08.296Z",
 	"Mode": "module",
-	"DocumentCount": 0,
+	"DocumentCount": 1,
 	"LunrIndex": {
 		"version": "2.3.9",
 		"fields": [
@@ -10,11 +10,357 @@
 			"group",
 			"body"
 		],
-		"fieldVectors": [],
-		"invertedIndex": [],
+		"fieldVectors": [
+			[
+				"title/_cover.md",
+				[
+					0,
+					3.567,
+					1,
+					3.567,
+					2,
+					3.567
+				]
+			],
+			[
+				"module/_cover.md",
+				[
+					0,
+					1.783,
+					1,
+					1.783,
+					2,
+					1.783
+				]
+			],
+			[
+				"group/_cover.md",
+				[]
+			],
+			[
+				"body/_cover.md",
+				[
+					0,
+					0.49,
+					1,
+					0.56,
+					2,
+					0.49,
+					3,
+					0.288,
+					4,
+					0.288,
+					5,
+					0.288,
+					6,
+					0.396,
+					7,
+					0.288,
+					8,
+					0.288,
+					9,
+					0.288,
+					10,
+					0.288,
+					11,
+					0.288,
+					12,
+					0.288,
+					13,
+					0.288,
+					14,
+					0.288,
+					15,
+					0.288,
+					16,
+					0.288,
+					17,
+					0.288,
+					18,
+					0.288,
+					19,
+					0.288,
+					20,
+					0.288
+				]
+			]
+		],
+		"invertedIndex": [
+			[
+				"configur",
+				{
+					"_index": 6,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"connect",
+				{
+					"_index": 1,
+					"title": {
+						"_cover.md": {}
+					},
+					"module": {
+						"_cover.md": {}
+					},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"databas",
+				{
+					"_index": 8,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"document",
+				{
+					"_index": 16,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"driver",
+				{
+					"_index": 13,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"fallback",
+				{
+					"_index": 11,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"full",
+				{
+					"_index": 15,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"github",
+				{
+					"_index": 19,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"grace",
+				{
+					"_index": 10,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"instanti",
+				{
+					"_index": 7,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"manag",
+				{
+					"_index": 2,
+					"title": {
+						"_cover.md": {}
+					},
+					"module": {
+						"_cover.md": {}
+					},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"meadow",
+				{
+					"_index": 0,
+					"title": {
+						"_cover.md": {}
+					},
+					"module": {
+						"_cover.md": {}
+					},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"miss",
+				{
+					"_index": 12,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"pars",
+				{
+					"_index": 5,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"provid",
+				{
+					"_index": 9,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"read",
+				{
+					"_index": 14,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"refer",
+				{
+					"_index": 18,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"server",
+				{
+					"_index": 3,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"side",
+				{
+					"_index": 4,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"start",
+				{
+					"_index": 20,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			],
+			[
+				"usag",
+				{
+					"_index": 17,
+					"title": {},
+					"module": {},
+					"group": {},
+					"body": {
+						"_cover.md": {}
+					}
+				}
+			]
+		],
 		"pipeline": [
 			"stemmer"
 		]
 	},
-	"Documents": {}
+	"Documents": {
+		"_cover.md": {
+			"Title": "Meadow-Connection-Manager",
+			"Module": "meadow-connection-manager",
+			"Group": "",
+			"DocPath": "_cover.md"
+		}
+	}
 }
