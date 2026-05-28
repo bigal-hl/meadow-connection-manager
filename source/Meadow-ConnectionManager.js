@@ -27,6 +27,7 @@ const PROVIDER_MODULES =
 	'MySQL':            'meadow-connection-mysql',
 	'PostgreSQL':       'meadow-connection-postgresql',
 	'MSSQL':            'meadow-connection-mssql',
+	'Oracle':           'meadow-connection-oracle',
 	'SQLite':           'meadow-connection-sqlite',
 	'Solr':             'meadow-connection-solr',
 	'RocksDB':          'meadow-connection-rocksdb',
@@ -49,6 +50,7 @@ const FORM_SCHEMA_PATHS =
 	'MySQL':           'source/Meadow-Connection-MySQL-FormSchema.js',
 	'PostgreSQL':      'source/Meadow-Connection-PostgreSQL-FormSchema.js',
 	'MSSQL':           'source/Meadow-Connection-MSSQL-FormSchema.js',
+	'Oracle':          'source/Meadow-Connection-Oracle-FormSchema.js',
 	'SQLite':          'source/Meadow-Connection-SQLite-FormSchema.js',
 	'Solr':            'source/Meadow-Connection-Solr-FormSchema.js',
 	'RocksDB':         'source/Meadow-Connection-RocksDB-FormSchema.js',
@@ -98,6 +100,18 @@ const defaultConnectionManagerOptions =
 		password: '',
 		database: 'meadow',
 		connectionLimit: 20,
+	},
+
+	// Default Oracle configuration (oracledb Thin mode; Easy Connect)
+	Oracle:
+	{
+		server: '127.0.0.1',
+		port: 1521,
+		user: 'app',
+		password: '',
+		connectionType: 'ServiceName',
+		serviceName: 'XEPDB1',
+		connectionLimit: 10,
 	},
 };
 
@@ -437,6 +451,19 @@ class MeadowConnectionManager extends libFableServiceProviderBase
 						return tmpResult.then(() => fCallback(null), (pError) => fCallback(pError));
 					}
 					return fCallback(null);
+				}
+				case 'Oracle':
+				{
+					// oracledb pools have no .query(); acquire a connection and
+					// run the canonical Oracle liveness probe (SELECT 1 FROM DUAL).
+					if (!tmpProvider || typeof tmpProvider.getConnection !== 'function') { return fCallback(null); }
+					return tmpProvider.getConnection((pConnectionError, pConnection) =>
+					{
+						if (pConnectionError) { return fCallback(pConnectionError); }
+						pConnection.execute('SELECT 1 FROM DUAL')
+							.then(() => { pConnection.close().then(() => fCallback(null)).catch(() => fCallback(null)); })
+							.catch((pError) => { pConnection.close().then(() => fCallback(pError)).catch(() => fCallback(pError)); });
+					});
 				}
 				case 'SQLite':
 				{
